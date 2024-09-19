@@ -21,3 +21,12 @@ composer create-project --prefer-dist laravel/laravel:10.* appName
 
 Next.jsプロジェクトの作成
 npx create-next-app@latest appName
+
+php artisan make:model ModelName -a
+このコマンドは、以下のものを一度に生成します：
+
+モデル (app/Models/ModelName.php)
+マイグレーション (database/migrations/xxxx_xx_xx_xxxxxx_create_model_names_table.php)
+コントローラ (app/Http/Controllers/ModelNameController.php)
+ファクトリー (database/factories/ModelNameFactory.php)
+シーダー (database/seeders/ModelNameSeeder.php)

@@ -15,3 +15,9 @@ git pull //ここで変更が反映される
 ※文字コードでエラーが出た場合
 git config --global core.autocrlf true
 改行コードの違いを改善
+
+Laravel 10 プロジェクトの作成
+composer create-project --prefer-dist laravel/laravel:10.* appName
+
+Next.jsプロジェクトの作成
+npx create-next-app@latest appName

@@ -9,12 +9,9 @@ use App\Http\Requests\UpdateZooRequest;
 
 class ZooController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //inndexは一覧取得するメソッド
+        //indexは一覧取得するメソッド
         //Zooはモデル名
         $animals = Zoo::all();
 
@@ -34,7 +31,7 @@ class ZooController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreZooRequest $request)
+    public function store(Request $request)
     {
         //バリデーション
         $validatedData = $request->validate([

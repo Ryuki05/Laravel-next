@@ -2,22 +2,19 @@
 
 namespace Database\Factories;
 
+use App\Models\Zoo;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Zoo>
- */
 class ZooFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
-    public function definition(): array
+    protected $model = Zoo::class;
+
+    public function definition()
     {
         return [
-            //
+            'name' => $this->faker->company, // 会社名などのフェイクデータを生成
+            'location' => $this->faker->city, // ランダムな都市名
+            'description' => $this->faker->paragraph, // ランダムなパラグラフ
         ];
     }
 }

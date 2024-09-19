@@ -30,3 +30,11 @@ php artisan make:model ModelName -a
 コントローラ (app/Http/Controllers/ModelNameController.php)
 ファクトリー (database/factories/ModelNameFactory.php)
 シーダー (database/seeders/ModelNameSeeder.php)
+
+
+findOrFail($id) は、LaravelのEloquent ORMにおけるメソッドで、指定したIDに基づいてデータベースからレコードを検索します。このメソッドの具体的な動作は以下の通りです。
+機能
+レコードの取得: $id で指定したIDのレコードを検索します。
+存在しない場合の処理:
+もし指定したIDのレコードが存在する場合、そのレコードを返します。
+レコードが存在しない場合、HTTPステータスコード404（Not Found）の例外がスローされます。このため、特定のリソースが見つからない場合に適切なエラーハンドリングができます。

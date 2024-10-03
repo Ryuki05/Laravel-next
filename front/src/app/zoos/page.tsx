@@ -1,43 +1,52 @@
 'use client';
-import React,{useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import ZooCard from '@/components/ZooCard';
 
 interface Zoo {
     id: number;
     name: string;
     location: string;
-    description?: string; // Optional property if not always present
+    description?: string; // Optional property
 }
 
-const ZooList = () => {
-    const [zoos,setZoos] = useState<Zoo[]>([]);
+const ZooDetails = () => {
+    const router = useRouter();
+    const { id } = router.query; // URLからIDを取得
+    const [zoo, setZoo] = useState<Zoo | null>(null); // 単一のZooの情報を保持
 
-    const fetchZoos = async () => {
-        const response = await fetch(`/api/zoos`);
-        const data = await response.json();
-        setZoos(data);
+    const fetchZoo = async () => {
+        if (id) {
+            const response = await fetch(`/api/zoos/${id}`);
+            if (response.ok) {
+                const data = await response.json();
+                setZoo(data);
+            } else {
+                console.error('Failed to fetch zoo:', response.status);
+            }
+        }
     };
+
     useEffect(() => {
-        fetchZoos();
-    }, []);
-  return (
-    <div>
-        <Header />
-        <h1>Zoo List</h1>
+        fetchZoo();
+    }, [id]); // IDが変更されるたびに再取得
+
+    return (
         <div>
-            {zoos.length > 0 ? (
-                zoos.map(zoo => (
-                    <ZooCard key={zoo.id} id={zoo.id} name={zoo.name} location={zoo.location} />
-                ))
+            <Header />
+            {zoo ? (
+                <div>
+                    <h1>{zoo.name}</h1>
+                    <p>Location: {zoo.location}</p>
+                    <p>Description: {zoo.description || 'No description available'}</p>
+                </div>
             ) : (
-                <p>No zoos found.</p>
+                <p>Loading...</p>
             )}
+            <Footer />
         </div>
-        <Footer />
-    </div>
-  );
+    );
 };
 
-export default ZooList;
+export default ZooDetails;

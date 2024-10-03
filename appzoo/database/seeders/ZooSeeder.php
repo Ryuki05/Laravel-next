@@ -10,6 +10,6 @@ class ZooSeeder extends Seeder
     public function run()
     {
         // 10件のフェイクデータを生成
-        Zoo::factory()->count(10)->create();
+        Zoo::factory()->count(50)->create();
     }
 }

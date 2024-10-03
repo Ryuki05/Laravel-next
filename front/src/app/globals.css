@@ -7,4 +7,72 @@
   padding: 0;
   inset-block: 0;
 }
+.container-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.container-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.text_center{
+  margin: 0 auto;
+  text-align: center;
+}
+.item_center{
+  margin: 0 auto;
+  align-items: center;
+}
 
+/* header */
+.search{
+  color: #ffbaba;
+  border: 2px solid #ffbaba;
+  border-radius: 10px;
+  margin: 10px 0;
+  padding: 10px;
+  width: 452px;
+}
+.header_label{
+  border-bottom: 2px solid #ffbaba ;
+}
+.header_icon{
+  margin: 5px;
+}
+.header_title{
+  font-size: 61px;
+}
+
+/* main */
+main{
+  height: 598px;
+}
+
+/* footer */
+.footer_label{
+  position:absolute;
+  bottom: 0;
+  left: 0;
+  background-color: #ffbaba;
+  width: 100%;
+  height: 254px;
+  margin-top: auto;
+}
+.copy_right{
+  color: #fff;
+  font-size: 38px;
+}
+/* ZooCard */
+.item{
+  margin: 20px;
+}
+.text_right{
+  text-align: right;
+}
+
+.footer_position{
+  position: relative;
+  padding-bottom: 254px;
+}

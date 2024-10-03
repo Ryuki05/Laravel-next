@@ -11,10 +11,11 @@ class ZooFactory extends Factory
 
     public function definition()
     {
+        $faker = \Faker\Factory::create('ja_JP');
         return [
-            'name' => $this->faker->company, // 会社名などのフェイクデータを生成
-            'location' => $this->faker->city, // ランダムな都市名
-            'description' => $this->faker->paragraph, // ランダムなパラグラフ
+            'name' => $faker->company, // 会社名などのフェイクデータを生成
+            'location' => $faker->city, // ランダムな都市名
+            'description' => $faker->randomFloat(2,1,9999999), // ランダムなパラグラフ
         ];
     }
 }

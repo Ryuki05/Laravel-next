@@ -12,7 +12,7 @@ interface ZooCardProps {
 const ZooCard: React.FC<ZooCardProps> = ({ id, name, location, description }) => {
     return (
         <div className='item'>
-            <Link href={`../app/zoos/${id}`}>
+            <Link href={`/zoos/${id}`}>
                 <h2>{name}</h2>
                 <Image src="/image/hizurun.png" alt='ロゴ' width={200} height={200} />
                 <p>Location: {location}</p>

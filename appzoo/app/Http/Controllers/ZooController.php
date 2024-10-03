@@ -34,7 +34,10 @@ class ZooController extends Controller
 
     public function show($id)
     {
-        $zoo = Zoo::findOrFail($id); // Zooを取得、見つからない場合は404エラーを返す
+        $zoo = Zoo::find($id); // ID で Zoo を取得
+        if (!$zoo) {
+            return response()->json(['error' => 'Zoo not found'], 404);
+        }
         return response()->json($zoo);
     }
 

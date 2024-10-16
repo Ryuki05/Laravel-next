@@ -1,10 +1,9 @@
 'use client';
-import React, {useEffect,useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ZooCard from '@/components/ZooCard';
-import {Irish_Grover} from 'next/font/google'
-
+import { Irish_Grover } from 'next/font/google';
 
 interface Zoo {
   id: number;
@@ -17,7 +16,6 @@ const irishGrover = Irish_Grover({
   subsets: ['latin'],
   weight: '400',
 });
-
 
 const Page = () => {
   const [zoos, setZoos] = useState<Zoo[]>([]);
@@ -34,13 +32,14 @@ const Page = () => {
 
   return (
     <div className={`footer_position ${irishGrover.className}`}>
-      <Header />
-        <div className='container-wrap'>
-          {zoos.map(zoo =>(
-            <ZooCard key={zoo.id} id={zoo.id} name={zoo.name} location={zoo.location} description={zoo.description}/>
-          ))}
-        </div>
-      <Footer/>
+      {/* Headerにzoosを渡す */}
+      <Header zoos={zoos} /> 
+      <div className='container-wrap'>
+        {zoos.map(zoo => (
+          <ZooCard key={zoo.id} id={zoo.id} name={zoo.name} location={zoo.location} description={zoo.description} />
+        ))}
+      </div>
+      <Footer />
     </div>
   );
 };

@@ -1,5 +1,4 @@
-'use client';
-
+'use client'
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import Header from '@/components/Header';
@@ -37,7 +36,8 @@ const ZooDetails = () => {
 
     return (
         <div>
-            <Header />
+            {/* 空の配列を渡す */}
+            <Header zoos={[]} />
             {zoo ? (
                 <div>
                     <h1>{zoo.name}</h1>
